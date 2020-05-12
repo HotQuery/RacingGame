@@ -1,0 +1,10 @@
+Design diary 5/11/2020
+
+Pivoted on the project and decided to take on something more
+structured: A race car game. I began implementing last night
+following along with tutorials on using pygame to create a top
+down 2D racing game where you avoid objects while driving a race
+car. The objects come from the top of the screen and I wrote code
+that defines boundaries for the car, and also interaction between the
+car and the falling objects. If the car is hit by an object a screen
+will read "You died". Also added a score counter for objects.
