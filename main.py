@@ -10,13 +10,14 @@ display_height = 600
 black = (0, 0, 0)
 white = (255, 255, 255)
 red = (255, 0, 0)
+green = (0, 200, 0)
 
 block_color = (53, 115, 225)
 
 car_width = 80
 
 gameDisplay = pygame.display.set_mode((display_width, display_height))
-pygame.display.set_caption('Arc-Dash Tokyo')
+pygame.display.set_caption('Arc-Dash X')
 clock = pygame.time.Clock()
 
 carImg = pygame.image.load('smolcar1.jpg')
@@ -51,6 +52,30 @@ def message_display(text):
 
 def crash():
     message_display('You Died')
+
+def game_intro():
+
+    intro = True
+
+    while intro:
+        for event in pygame.event.get():
+            print(event)
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                quit()
+
+        gameDisplay.fill(white)
+        largeText = pygame.font.Font('freesansbold.ttf', 115)
+        TextSurf, TextRect = text_objects("Arc-Dash X", largeText)
+        TextRect.center = ((display_width / 2), (display_height / 2))
+        gameDisplay.blit(TextSurf, TextRect)
+
+        pygame.draw.rect(gameDisplay, green, (150, 450, 100, 50))
+        pygame.draw.rect(gameDisplay, red, (550, 450, 100, 50))
+
+        pygame.display.update()
+        clock.tick(5)
+
 
 
 def game_loop():
@@ -118,5 +143,6 @@ def game_loop():
         clock.tick(60)
 
 
+#game_intro()
 game_loop()
 
